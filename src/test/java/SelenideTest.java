@@ -35,7 +35,7 @@ public class SelenideTest {
         $("[placeholder='Город']").setValue("Са");
         $(byText("Самара")).click();
         $$("span.icon-button__content").find(Condition.visible).click();
-        $("[data-day='1685998800000']").click();
+        $("[data-day='1685998800000']").shouldBe(Condition.visible).click();
         $("[name='name']").setValue("Семенова Анна Аркадьевна");
         $("[name='phone']").setValue("+79256584856");
         $("[data-test-id='agreement']").click();
