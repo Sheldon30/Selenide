@@ -40,7 +40,7 @@ public class SelenideTest {
         $("[name='phone']").setValue("+79256584856");
         $("[data-test-id='agreement']").click();
         $$("[type='button']").find(Condition.exactText("Забронировать")).click();
-        $$("[class='notification__content']").find(Condition.exactText("06.06.2023")).shouldBe(Condition.hidden, Duration.ofMillis(15));
+        $(withText("06.06.2023")).shouldBe(Condition.hidden, Duration.ofMillis(15));
 
     }
 
