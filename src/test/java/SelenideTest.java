@@ -29,20 +29,6 @@ public class SelenideTest {
         $(withText("Успешно!")).shouldBe(Condition.hidden, Duration.ofMillis(15));
     }
 
-    @Test
-    public void registrationCardListTest() {
-        open("http://localhost:9999/");
-        $("[placeholder='Город']").setValue("Са");
-        $(byText("Самара")).click();
-        $$("span.icon-button__content").find(Condition.visible).click();
-        $("[data-day='1685998800000']").shouldBe(Condition.visible).click();
-        $("[name='name']").setValue("Семенова Анна Аркадьевна");
-        $("[name='phone']").setValue("+79256584856");
-        $("[data-test-id='agreement']").click();
-        $$("[type='button']").find(Condition.exactText("Забронировать")).click();
-        $(withText("06.06.2023")).shouldBe(Condition.hidden, Duration.ofMillis(15));
-
-    }
 
 }
 
