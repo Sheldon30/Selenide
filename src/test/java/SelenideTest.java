@@ -26,7 +26,10 @@ public class SelenideTest {
         $("[name='phone']").setValue("+79256584856");
         $("[data-test-id='agreement']").click();
         $$("[type='button']").find(Condition.exactText("Забронировать")).click();
-        $(withText("Успешно!")).shouldBe(Condition.hidden, Duration.ofMillis(15));
+        String planningDate = generateDate(3, "dd.MM.yyyy");
+        $(".notification__content")
+                .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(15))
+                .shouldBe(Condition.visible);
     }
 
 
